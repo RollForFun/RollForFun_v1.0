@@ -18,7 +18,7 @@ $ heroku open
 
 ## Documentation
 
-For more information about using PHP on Heroku, see these Dev Center articles:
+For more information about using PHP on Heroku, see these Dev Center articles: test
 
 - [PHP on Heroku](https://devcenter.heroku.com/categories/php)
 
