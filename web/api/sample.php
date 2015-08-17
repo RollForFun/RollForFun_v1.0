@@ -30,7 +30,7 @@ $TOKEN_SECRET = "UluIm4Q3AAY-dLixUMqOKtDb_kI";
 $API_HOST = 'api.yelp.com';
 $DEFAULT_TERM = 'chinese';
 $DEFAULT_LOCATION = 'Waterloo';
-$SEARCH_LIMIT = 10;
+$SEARCH_LIMIT = 20;
 $SEARCH_PATH = '/v2/search/';
 $BUSINESS_PATH = '/v2/business/';
 /** 
