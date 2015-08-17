@@ -84,6 +84,7 @@ function search($term, $location) {
     $url_params['location'] = $location?: $GLOBALS['DEFAULT_LOCATION'];
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
 	$url_params['sort'] = 1;
+	$url_params['offset'] = 10;
     $search_path = $GLOBALS['SEARCH_PATH'] . "?" . http_build_query($url_params);
     
     return request($GLOBALS['API_HOST'], $search_path);
