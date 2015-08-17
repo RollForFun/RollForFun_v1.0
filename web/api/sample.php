@@ -1,6 +1,7 @@
-#!/usr/bin/php
+
 <?php
 /**
+ * #!/usr/bin/php
  * Yelp API v2.0 code sample.
  *
  * This program demonstrates the capability of the Yelp API version 2.0
