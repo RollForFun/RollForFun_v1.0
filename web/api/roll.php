@@ -89,6 +89,23 @@ function search($term, $location) {
     
     return request($GLOBALS['API_HOST'], $search_path);
 }
+
+/**
+ * Query the Search API by a search term and location 
+ * 
+ * @param    $term        The search term passed to the API 
+ * @param    $location    The search location passed to the API 
+ * @return   The JSON response from the request 
+ */
+function searchByLL($latitude, $longitude) {
+    $url_params = array();
+    
+    $url_params['ll'] = $latitude . "," . $longitude;
+    $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
+    $search_path = $GLOBALS['SEARCH_PATH'] . "?" . http_build_query($url_params);
+    
+    return request($GLOBALS['API_HOST'], $search_path);
+}
 /**
  * Query the Business API by business_id
  * 

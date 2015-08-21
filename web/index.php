@@ -1,6 +1,7 @@
 <?php
 
 require('../vendor/autoload.php');
+require('api/roll.php');
 $app = new \Slim\Slim(array(
     'mode' => 'development',
     'debug' => true
@@ -20,12 +21,11 @@ $app->get('/hello/:name', function ($name) {
 $app->group('/api', function () use ($app) {
 
     $app->get('/roll', function () {
-    	require('api/roll.php');
     	echo(search("chinese", "Waterloo"));
     });
 
-    $app->get('/r', function () {
-    	echo "Hi there";
+    $app->get('/rollbyll/:latitude/:longitude', function ($latitude, $longitude) {
+    	echo(searchByLL($latitude, $longitude));
     });
 
 });
