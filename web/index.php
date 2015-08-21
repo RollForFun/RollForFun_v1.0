@@ -1,25 +1,33 @@
 <?php
 
 require('../vendor/autoload.php');
-
-$app = new Silex\Application();
-$app['debug'] = true;
-
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
+$app = new \Slim\Slim(array(
+    'mode' => 'development',
+    'debug' => true
 ));
+$app->response->headers->set('Content-Type', 'application/json');
 
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
+$app->get('/', function () {
+    echo "Hi there";
+});
 
-// Our web handlers
+$app->get('/hello/:name', function ($name) {
+    echo "Hello, $name";
+});
 
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
+// API group
+$app->group('/api', function () use ($app) {
+
+    $app->get('/roll', function () {
+    	require('api/roll.php');
+    	echo(search("chinese", "Waterloo"));
+    });
+
+    $app->get('/r', function () {
+    	echo "Hi there";
+    });
+
 });
 
 $app->run();
+?>
