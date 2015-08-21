@@ -5,6 +5,7 @@ $app = new \Slim\Slim(array(
     'mode' => 'development',
     'debug' => true
 ));
+$app->response->headers->set('Access-Control-Allow-Origin', '*');
 $app->response->headers->set('Content-Type', 'application/json');
 
 $app->get('/', function () {
